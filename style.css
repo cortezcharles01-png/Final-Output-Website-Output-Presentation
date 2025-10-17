@@ -201,7 +201,7 @@ footer nav {
 }
 
 /* ============================
-   💻 TABLET RESPONSIVE (NEW)
+   TABLET RESPONSIVE (NEW)
    ============================ */
 @media (max-width: 1024px) and (min-width: 769px) {
   h1 {
@@ -249,7 +249,7 @@ footer nav {
 }
 
 /* ============================
-   📱 MOBILE RESPONSIVE
+    MOBILE RESPONSIVE
    ============================ */
 @media (max-width: 768px) {
   h1 {
@@ -571,7 +571,7 @@ footer nav a.active {
   display: block;
 }
 /* ===========================
-   🧭 FIXED BOTTOM NAVIGATION
+    FIXED BOTTOM NAVIGATION
    =========================== */
 .bottom-nav {
   position: fixed;
@@ -631,4 +631,5 @@ footer nav a.active {
     font-size: 18px;
   }
 }
+
 
