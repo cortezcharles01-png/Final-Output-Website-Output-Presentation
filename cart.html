@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart - CSHOP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cart-page">
+  <header>
+    <button class="back-btn" onclick="location.href='home.html'">←</button>
+    <h2>My Cart</h2>
+  </header>
+
+  <main id="cart-items" class="cart-container"></main>
+
+  <div class="checkout-bar">
+    <button class="btn-primary" onclick="checkout()">Go to Checkout 
+      (<span id="cart-total">$0</span>)
+    </button>
+  </div>
+
+  <footer>
+    <nav>
+      <a href="home.html">🏠</a>
+      <a href="cart.html" class="active">🛒</a>
+      <a href="settings.html">⚙️</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

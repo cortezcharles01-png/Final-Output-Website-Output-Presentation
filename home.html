@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSHOP - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home-page">
+  <header class="header">
+    <div class="logo">CSHOP</div>
+    <div class="icons">
+      <button class="icon-btn" onclick="location.href='cart.html'">🛒</button>
+      <button class="icon-btn" onclick="location.href='settings.html'">⚙️</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search products..." />
+    </div>
+
+    <!-- ✅ Dropdown Categories -->
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown()">Categories </button>
+      <div id="dropdownMenu" class="dropdown-content">
+        <a href="#" onclick="openCategory('Processors')"> Processors</a>
+        <a href="#" onclick="openCategory('RAM')"> RAM</a>
+        <a href="#" onclick="openCategory('Motherboards')"> Motherboards</a>
+        <a href="#" onclick="openCategory('Graphics Cards')"> Graphics Cards</a>
+        <a href="#" onclick="openCategory('Accessories')"> Accessories</a>
+      </div>
+    </div>
+
+    <!-- ✅ Hero Section -->
+    <section class="hero-section">
+      <div class="hero-image">
+        <img src="PC2.jpg" alt="Build Your Dream PC" />
+      </div>
+      <div class="hero-text">
+        <h2>Build Your Dream PC</h2>
+        <p>with quality parts you can trust </p>
+      </div>
+    </section>
+
+    <!-- ✅ Top Sellers -->
+    <section class="top-sellers">
+      <h3>Top Sellers</h3>
+      <div class="product-grid">
+        <div class="product" onclick="viewProduct('Headphones')">
+          <img src="head1.jpg" alt="Headphones" />
+          <p>Headphones</p>
+          <span>$155</span>
+        </div>
+        <div class="product" onclick="viewProduct('Graphics Card')">
+          <img src="gpu1.jpg" alt="Graphics Card" />
+          <p>Graphics Card</p>
+          <span>$200</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom-nav">
+    <button class="active">🏠</button>
+    <button onclick="location.href='cart.html'">🛒</button>
+    <button onclick="location.href='settings.html'">⚙️</button>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- ✅ Dropdown Toggle Script -->
+  <script>
+    function toggleDropdown() {
+      document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+
+    // Close dropdown if user clicks outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          const openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+  </script>
+</body>
+</html>

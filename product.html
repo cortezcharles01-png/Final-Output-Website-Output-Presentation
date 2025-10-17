@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="product-page">
+  <header>
+    <button class="back-btn" onclick="history.back()">←</button>
+    <div class="icons">
+      <span>🔔</span>
+      <span onclick="location.href='cart.html'" style="cursor:pointer;">🛒</span>
+    </div>
+  </header>
+
+  <div id="product-container" class="product-detail">
+    <!-- Dynamic product details will load here -->
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    // ===========================================================
+    // 🧠 Dynamic Product Page (Headphones + RTX 4080)
+    // ===========================================================
+
+    const products = {
+      'Headphones': {
+        name: 'Headphone',
+        price: 155,
+        oldPrice: 300,
+        img: 'head1.jpg',
+        tag: 'On Sale',
+        rating: '⭐ 4.2',
+        reviews: '💬 132 Reviews',
+        colors: ['orange', 'black', 'gray'],
+        description: `Our compact and foldable Bluetooth earbuds are renowned 
+        for their lightweight build, offering a convenient and portable solution 
+        for audiophiles on the go.`,
+        specs: {
+          'Model Name': 'Boat Airdopes 121V2',
+          'Color': 'Gray',
+          'Connectivity': 'Bluetooth 5.0',
+          'Battery Life': '3.5 Hours (Single Charge)',
+        },
+      },
+      'Graphics Card': {
+        name: 'NVIDIA GeForce RTX 4080',
+        price: 200,
+        oldPrice: 300,
+        img: 'gpu1.jpg',
+        tag: 'Bestseller',
+        rating: '⭐ 4.8',
+        reviews: '💬 245 Reviews',
+        colors: ['black', 'silver', 'gray'],
+        description: `Unleash extreme gaming power with the NVIDIA RTX 4080. 
+        Engineered for 4K gaming and next-gen performance, it features 16 GB 
+        GDDR6X memory, DLSS 3, and real-time ray tracing for lifelike lighting 
+        and reflections.`,
+        specs: {
+          'Chipset': 'NVIDIA GeForce RTX 4080',
+          'Memory': '16 GB GDDR6X',
+          'Boost Clock': '2.51 GHz',
+          'Power Connector': '16-pin PCIe Gen 5',
+        },
+      }
+    };
+
+    // Retrieve product name stored in localStorage
+    const selectedProduct = localStorage.getItem('selectedProduct') || 'Headphones';
+    const product = products[selectedProduct] || products['Headphones'];
+
+    // Build HTML dynamically
+    const container = document.getElementById('product-container');
+    container.innerHTML = `
+      <img src="${product.img}" alt="${product.name}">
+      <h2>${product.name}</h2>
+      <p class="price">
+        <span class="discount">$${product.price}</span>
+        <span class="old-price">$${product.oldPrice}</span>
+      </p>
+      <span class="tag">${product.tag}</span>
+
+      <div class="ratings">
+        <span>${product.rating}</span>
+        <span>${product.reviews}</span>
+      </div>
+
+      <div class="colors">
+        <h4>Color</h4>
+        ${product.colors.map(color => `<div class="color-option ${color}"></div>`).join('')}
+      </div>
+
+      <div class="description">
+        <h4>Description</h4>
+        <p>${product.description}</p>
+      </div>
+
+      <div class="specs">
+        <h4>Specifications</h4>
+        ${Object.entries(product.specs).map(([key, value]) => 
+          `<p><strong>${key}:</strong> ${value}</p>`).join('')}
+      </div>
+
+      <div class="quantity">
+        <button onclick="updateQty(-1)">-</button>
+        <span id="qty">1</span>
+        <button onclick="updateQty(1)">+</button>
+      </div>
+
+      <button class="btn-primary" onclick="addToCart('${product.name}', ${product.price}, '${product.img}', 'qty')">Add to Cart</button>
+      <button class="btn-secondary" onclick="buyNow()">Buy now</button>
+    `;
+
+    // Simple buy now function
+    function buyNow() {
+      alert("Order has been accepted ✅");
+      localStorage.removeItem('cart');
+      location.href = 'confirmation.html';
+    }
+  </script>
+</body>
+</html>
