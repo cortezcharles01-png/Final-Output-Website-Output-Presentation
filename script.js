@@ -1,14 +1,14 @@
 /* ===========================================================
-   🔧 CSHOP MAIN SCRIPT.JS (Updated: Cart now shows images)
+    CSHOP MAIN SCRIPT.JS (Updated: Cart now shows images)
    =========================================================== */
 
 /* ===============================
-   🛒 CART MANAGEMENT
+    CART MANAGEMENT
    =============================== */
 
 // Add a product to cart (with image support)
 /* ===============================
-   🏷️ PRODUCT VIEW SYSTEM
+    PRODUCT VIEW SYSTEM
    =============================== */
 function viewProduct(productName) {
   localStorage.setItem('selectedProduct', productName);
@@ -120,7 +120,7 @@ function checkout() {
 }
 
 /* ===============================
-   🧭 CATEGORY SYSTEM
+   CATEGORY SYSTEM
    =============================== */
 
 // Navigate to selected category
@@ -181,10 +181,11 @@ function loadCategory() {
 }
 
 /* ===============================
-   ⚡ PAGE INITIALIZATION
+    PAGE INITIALIZATION
    =============================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   if (document.body.classList.contains('cart-page')) loadCart();
   if (document.body.classList.contains('category-page')) loadCategory();
 });
+
