@@ -200,7 +200,57 @@ footer nav {
   cursor: pointer;
 }
 
-/* RESPONSIVE DESIGN */
+/* ============================
+   💻 TABLET RESPONSIVE (NEW)
+   ============================ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar input {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-image img {
+    width: 350px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .category-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer nav a {
+    font-size: 1.3em;
+  }
+}
+
+/* ============================
+   📱 MOBILE RESPONSIVE
+   ============================ */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.8em;
@@ -221,6 +271,29 @@ footer nav {
   .btn-primary, .btn-secondary {
     width: 90%;
     font-size: 1em;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    padding: 10px 0;
+  }
+
+  .hero-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .dropbtn {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    margin-top: 0;
   }
 }
 
@@ -248,7 +321,9 @@ footer nav {
   .quantity button {
     padding: 0.4em 0.8em;
   }
-  /* CATEGORY PAGE */
+}
+
+/* CATEGORY PAGE */
 .category-container {
   padding: 1em;
 }
@@ -270,16 +345,14 @@ footer nav {
   width: 100%;
   margin-top: 0.5em;
 }
-/* ==============================
-   ⚙️ SETTINGS PAGE STYLES
-   ============================== */
 
+/* SETTINGS PAGE */
 .settings-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding: 20px;
-  padding-bottom: 90px; /* For bottom nav space */
+  padding-bottom: 90px;
 }
 
 .settings-section h3 {
@@ -324,27 +397,6 @@ footer nav {
 .settings-item .value {
   color: #777;
   font-size: 0.9rem;
-}
-
-/* Section Layout for better visual grouping */
-.settings-section {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Responsive behavior */
-@media (max-width: 480px) {
-  .settings-container {
-    padding: 15px;
-  }
-
-  .settings-item {
-    padding: 12px;
-  }
-
-  .settings-section h3 {
-    font-size: 0.95rem;
-  }
 }
 
 /* CART PAGE */
@@ -430,30 +482,8 @@ footer nav a {
 footer nav a.active {
   color: #007bff;
 }
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  border-top: 1px solid #eee;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-}
 
-.bottom-nav button {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.bottom-nav button.active {
-  color: blue;
-}
-/* ===========================
-   🖼️ HERO SECTION STYLING
-   =========================== */
+/* HERO SECTION */
 .hero-section {
   display: flex;
   align-items: center;
@@ -491,24 +521,7 @@ footer nav a.active {
   font-weight: 400;
 }
 
-/* 📱 Mobile Responsive */
-@media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text {
-    padding: 10px 0;
-  }
-
-  .hero-text h2 {
-    font-size: 1.6rem;
-  }
-}
-/* ===========================
-   📂 DROPDOWN MENU STYLES
-   =========================== */
+/* DROPDOWN MENU */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -557,17 +570,65 @@ footer nav a.active {
 .show {
   display: block;
 }
+/* ===========================
+   🧭 FIXED BOTTOM NAVIGATION
+   =========================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
 
-/* 📱 Responsive adjustment */
+.bottom-nav button {
+  flex: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bottom-nav button:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+.bottom-nav button.active {
+  color: #007bff;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .bottom-nav {
+    padding: 8px 0;
+  }
+
+  .bottom-nav button {
+    font-size: 20px;
+  }
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  .dropbtn {
-    width: 100%;
+  .bottom-nav {
+    justify-content: space-evenly;
   }
-  .dropdown-content {
-    position: static;
-    width: 100%;
-    margin-top: 0;
+
+  .bottom-nav button {
+    font-size: 18px;
   }
 }
 
-}
